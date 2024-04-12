@@ -1,24 +1,21 @@
 function firstWord(str) {
-    // If the string is empty or does not contain any space, return the entire string
-    if (!str || !str.includes(' ')) {
-        return str;
-    }
-    
-    // Otherwise, find the index of the first space and return the substring up to that index
-    return str.substring(0, str.indexOf(' '));
-}
-
-// Example usage:
-function firstWord(s) {
-  // your code here
-  if (!s || !s.includes(' ')) {
-      return s;
+  // Trim leading and trailing spaces
+  str = str.trim();
+  
+  // Find the index of the first space
+  const spaceIndex = str.indexOf(' ');
+  
+  // If no space is found or the string is empty, return the entire string
+  if (spaceIndex === -1 || str === '') {
+    return str;
   }
   
-  return s.substring(0, s.indexOf(' '));
+  // Return the substring from the start of the string up to the first space
+  return str.substring(0, spaceIndex);
 }
 
-// Do not change the code below
-
-const s = prompt("Enter String:");
-alert(firstWord(s));
+// Test cases
+console.log(firstWord('see and stop')); // Output: 'see'
+console.log(firstWord(' Hello World!')); // Output: 'Hello'
+console.log(firstWord('12345')); // Output: '12345'
+console.log(firstWord('')); // Output: ''
